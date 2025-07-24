@@ -1,0 +1,1071 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --primary-color: #ff6f61; /* Example highlight color, adjust as needed */
+    --text-color: #333;
+    --light-grey: #f8f8f8;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ffffff; /* White background for the whole page */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 1140px; /* Matches the container width from your image */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    box-sizing: border-box;
+    position: relative; /* For alignment of numbers */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px; /* Adjust as needed */
+    margin-right: 10px;
+}
+
+.logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links ul li {
+    margin-left: 30px;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+}
+
+.cart img {
+    height: 24px; /* Adjust as needed */
+    margin-right: 8px;
+}
+
+.cart span {
+    color: var(--text-color);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Hero Section */
+.hero-section {
+    width: 100%;
+    max-width: 1140px; /* Matches the container width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 0; /* Adjust padding as needed */
+    margin-top: 20px; /* Space between header and hero */
+    background-color: var(--light-grey); /* Light grey background for the hero section as per image */
+    border-radius: 8px; /* Optional: slight border-radius if desired */
+    box-sizing: border-box;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 0 40px; /* Internal padding for content */
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px; /* Adjust as needed for "ALWAYS FRESH" */
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content h1 .highlight {
+    color: var(--primary-color); /* The orange color for "FLOWERS" */
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 500px; /* Limit paragraph width */
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Align image to the right */
+    padding: 0 40px; /* Internal padding for image */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Optional: if the image has rounded corners */
+}
+
+/* Numbers (1140 and 71) */
+/* These numbers in your image seem to be for layout/measurement,
+   and not typically part of the final HTML structure unless they
+   represent specific content. If they are decorative or informative
+   for the user, you can position them absolutely. */
+.navbar::before {
+    content: "1140";
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%);
+    background-color: #007bff; /* Blue background for numbers */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+    display: none; /* Hide by default unless you want them visible */
+}
+
+.navbar::after {
+    content: "71";
+    position: absolute;
+    top: 50%; /* Adjust as needed */
+    left: calc(50% + 70px); /* Adjust position relative to 1140 */
+    transform: translate(-50%, -50%);
+    background-color: #007bff; /* Blue background for numbers */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 10;
+    display: none; /* Hide by default unless you want them visible */
+}
+
+/* For responsiveness (basic example) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        margin-top: 15px;
+        align-items: flex-start;
+    }
+
+    .nav-links ul li {
+        margin: 10px 0;
+    }
+
+    .hero-section {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .hero-content,
+    .hero-image {
+        padding: 0;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 48px;
+    }
+
+    .hero-image {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo span {
+        font-size: 24px;
+    }
+
+    .cart span {
+        font-size: 14px;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+}
+/* style.css (continued) */
+
+/* Plants Section */
+.plants-section {
+    width: 100%;
+    max-width: 1140px; /* Matches the container width */
+    padding: 80px 0; /* Adjust padding as needed */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff; /* White background as per image */
+    border: 2px solid #e0e0e0; /* Border around the entire section as seen in the image */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin-top: 40px; /* Space between hero and plants section */
+}
+
+.plants-header {
+    text-align: center;
+    margin-bottom: 60px; /* Space between header and product grid */
+    padding: 0 20px; /* Padding for text */
+}
+
+.plants-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.plants-header h2 .highlight-orange {
+    color: var(--primary-color); /* The orange color */
+}
+
+.plants-header p {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 700px; /* Limit paragraph width */
+    margin: 0 auto;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 30px; /* Space between product cards */
+    width: 100%;
+    padding: 0 30px; /* Padding for the grid inside the section */
+    box-sizing: border-box;
+}
+
+.product-card {
+    background-color: #fcfcfc; /* Slightly off-white for cards, if needed, or pure white */
+    border: 1px solid #eee; /* Light border for each card */
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Image border-radius */
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color); /* Orange color for price */
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    background-color: var(--primary-color); /* Orange background */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width button */
+}
+
+.add-to-cart-btn:hover {
+    background-color: #e55e52; /* Slightly darker orange on hover */
+}
+
+/* Responsiveness for Plants Section */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .plants-section {
+        padding: 60px 0;
+    }
+    .plants-header h2 {
+        font-size: 40px;
+    }
+    .plants-header p {
+        font-size: 16px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 20px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .plants-section {
+        padding: 40px 0;
+        border: none; /* Remove border on very small screens for better fit */
+    }
+    .plants-header h2 {
+        font-size: 32px;
+    }
+    .plants-header p {
+        font-size: 14px;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+        gap: 15px;
+        padding: 0 15px;
+    }
+    .product-card {
+        padding: 15px;
+    }
+}
+/* style.css (continued) */
+
+/* About Us Section (Flower & Plants Lover) */
+.about-us-section {
+    width: 100%;
+    max-width: 1140px; /* Matches the container width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0; /* Adjust padding as needed */
+    box-sizing: border-box;
+    margin-top: 40px; /* Space between previous section and this one */
+    background-color: #ffffff; /* White background */
+}
+
+.about-us-section .image-container {
+    flex: 1;
+    position: relative; /* For positioning the badge */
+    margin-right: 40px; /* Space between image and content */
+    display: flex; /* To center the image within its flex item */
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-section .florist-image {
+    max-width: 100%; /* Ensure image fits container */
+    height: auto;
+    display: block;
+    border-radius: 8px; /* Optional: if the image has rounded corners */
+}
+
+.about-us-section .trusted-badge {
+    position: absolute;
+    top: -40px; /* Adjust as needed to place it above and slightly left/right */
+    left: 70%; /* Adjust as needed */
+    transform: translateX(-50%); /* Center horizontally relative to its left */
+    width: 150px; /* Adjust badge size */
+    height: auto;
+    z-index: 2; /* Ensure badge is above the image */
+}
+
+.about-us-section .content-container {
+    flex: 1;
+    padding-left: 40px; /* Padding for content */
+}
+
+.about-us-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.about-us-section ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.about-us-section ul li {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 15px; /* Space between list items */
+    position: relative;
+    padding-left: 30px; /* Space for custom bullet */
+}
+
+.about-us-section ul li::before {
+    content: '•'; /* Custom bullet point */
+    font-size: 24px; /* Size of the bullet */
+    color: var(--primary-color); /* Orange color for bullet */
+    position: absolute;
+    left: 0;
+    top: 0px; /* Adjust vertical alignment */
+}
+
+
+/* Responsiveness for About Us Section */
+@media (max-width: 992px) {
+    .about-us-section {
+        flex-direction: column; /* Stack image and content */
+        padding: 60px 20px;
+    }
+
+    .about-us-section .image-container {
+        margin-right: 0;
+        margin-bottom: 40px; /* Space between image and content when stacked */
+        width: 100%; /* Ensure image container takes full width */
+        max-width: 600px; /* Limit image width on smaller screens */
+        position: relative;
+    }
+
+    .about-us-section .trusted-badge {
+        top: -20px; /* Adjust badge position */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+    }
+
+    .about-us-section .content-container {
+        padding-left: 0;
+        text-align: center; /* Center text content */
+    }
+
+    .about-us-section h2 {
+        font-size: 40px;
+    }
+
+    .about-us-section ul {
+        text-align: left; /* Keep list items left-aligned */
+        margin: 0 auto;
+        max-width: 600px; /* Limit list width */
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-section h2 {
+        font-size: 36px;
+    }
+    .about-us-section ul li {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-section {
+        padding: 40px 15px;
+    }
+    .about-us-section h2 {
+        font-size: 30px;
+    }
+    .about-us-section ul li {
+        font-size: 15px;
+        padding-left: 25px;
+    }
+    .about-us-section ul li::before {
+        font-size: 20px;
+    }
+    .about-us-section .trusted-badge {
+        top: -10px; /* Further adjust badge for small screens */
+        width: 100px;
+    }
+}
+/* style.css (continued) */
+
+/* Latest Deals Section Header */
+.latest-deals-header {
+    width: 100%;
+    max-width: 1140px; /* Matches the container width */
+    text-align: center;
+    padding: 80px 20px 40px; /* Top, horizontal, bottom padding */
+    box-sizing: border-box;
+    margin-top: 40px; /* Space from previous section */
+    background-color: #ffffff; /* White background */
+}
+
+.latest-deals-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.latest-deals-header h2 .highlight-orange {
+    color: var(--primary-color); /* The orange color */
+}
+
+.latest-deals-header p {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 700px; /* Limit paragraph width */
+    margin: 0 auto; /* Center the paragraph */
+}
+
+/* Responsiveness for Latest Deals Header */
+@media (max-width: 768px) {
+    .latest-deals-header {
+        padding: 60px 20px 30px;
+    }
+    .latest-deals-header h2 {
+        font-size: 40px;
+    }
+    .latest-deals-header p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .latest-deals-header {
+        padding: 40px 15px 20px;
+    }
+    .latest-deals-header h2 {
+        font-size: 32px;
+    }
+    .latest-deals-header p {
+        font-size: 15px;
+    }
+}
+
+/* style.css (continued) */
+
+/* Deals Showcase Section */
+.deals-showcase {
+    width: 100%;
+    max-width: 1140px; /* Matches the container width */
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* One column for small cards, two for large */
+    grid-template-rows: repeat(2, minmax(200px, 1fr)); /* Two rows, minimum height 200px, flexible */
+    gap: 30px; /* Space between deal cards */
+    padding: 40px 0; /* Padding around the grid */
+    box-sizing: border-box;
+    margin-top: 20px; /* Space from previous section */
+}
+
+.deal-card {
+    border-radius: 8px;
+    overflow: hidden; /* Ensures image corners are rounded */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    text-align: center;
+    color: white; /* Text color on the image */
+    position: relative;
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat;
+    min-height: 250px; /* Ensure a minimum height for all cards */
+}
+
+/* Overlay for better text readability */
+.deal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+    z-index: 1;
+}
+
+.deal-card .deal-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+    padding: 20px;
+}
+
+.deal-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Subtle shadow for text readability */
+}
+
+.deal-card .shop-now-btn {
+    display: inline-block;
+    background-color: transparent; /* No background */
+    color: white;
+    border: 2px solid white; /* White border */
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.deal-card .shop-now-btn:hover {
+    background-color: white;
+    color: var(--primary-color); /* Orange text on hover */
+}
+
+/* Specific grid placement for cards */
+.deals-showcase .small-card:nth-child(1) {
+    grid-column: 1 / 2; /* First small card in the first column */
+    grid-row: 1 / 2;    /* In the first row */
+}
+
+.deals-showcase .small-card:nth-child(2) {
+    grid-column: 1 / 2; /* Second small card in the first column */
+    grid-row: 2 / 3;    /* In the second row */
+}
+
+.deals-showcase .large-card {
+    grid-column: 2 / 3; /* Large card spans the second column */
+    grid-row: 1 / 3;    /* Large card spans both rows */
+}
+
+
+/* Responsiveness for Deals Showcase */
+@media (max-width: 992px) {
+    .deals-showcase {
+        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-rows: auto; /* Auto rows */
+        padding: 30px 20px;
+    }
+
+    .deals-showcase .small-card,
+    .deals-showcase .large-card {
+        grid-column: auto; /* Reset column span */
+        grid-row: auto;    /* Reset row span */
+        min-height: 220px; /* Adjust height for mobile */
+    }
+
+    .deal-card h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .deals-showcase {
+        gap: 20px;
+        padding: 20px 15px;
+    }
+    .deal-card {
+        min-height: 180px;
+    }
+    .deal-card h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+    .deal-card .shop-now-btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+}
+
+/* style.css (continued) */
+
+/* Subscribe Section */
+.subscribe-section {
+    width: 100%;
+    min-height: 400px; /* Adjust height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white; /* Text color */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; /* For the overlay */
+    margin-top: 60px; /* Space from previous section */
+    padding: 40px 20px; /* Internal padding */
+    box-sizing: border-box;
+}
+
+/* Optional: Dark overlay for better text readability */
+.subscribe-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark overlay */
+    z-index: 1;
+}
+
+.subscribe-section .subscribe-content {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+    max-width: 700px; /* Limit content width */
+}
+
+.subscribe-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Subtle shadow for text readability */
+}
+
+.subscribe-section .subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between input and button */
+    max-width: 500px; /* Limit form width */
+    margin: 0 auto; /* Center the form */
+}
+
+.subscribe-section input[type="email"] {
+    flex-grow: 1; /* Allows input to take available space */
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none; /* Remove default focus outline */
+    color: #333; /* Input text color */
+}
+
+.subscribe-section input[type="email"]::placeholder {
+    color: #999;
+}
+
+.subscribe-section .subscribe-btn {
+    background-color: var(--primary-color); /* Orange background from CSS variable */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.subscribe-section .subscribe-btn:hover {
+    background-color: #e55e52; /* Slightly darker orange on hover */
+}
+
+/* Responsiveness for Subscribe Section */
+@media (max-width: 768px) {
+    .subscribe-section {
+        min-height: 350px;
+        padding: 30px 15px;
+    }
+    .subscribe-section h2 {
+        font-size: 40px;
+        margin-bottom: 25px;
+    }
+    .subscribe-section .subscribe-form {
+        flex-direction: column; /* Stack input and button vertically */
+        gap: 15px;
+        max-width: 350px; /* Adjust form width */
+    }
+    .subscribe-section input[type="email"],
+    .subscribe-section .subscribe-btn {
+        width: 100%; /* Full width when stacked */
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .subscribe-section {
+        min-height: 300px;
+    }
+    .subscribe-section h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+}
+
+/* style.css (continued) */
+
+/* Main Footer */
+.main-footer {
+    width: 100%;
+    max-width: 1140px; /* Matches the content width of other sections */
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 0; /* Vertical padding */
+    box-sizing: border-box;
+    background-color: #ffffff; /* White background */
+    margin-top: 60px; /* Space from the section above it */
+    border-top: 1px solid #eee; /* Optional: light line at the top of the footer */
+    /* Ensure footer is centered on the page */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-column {
+    /* flex: 1; - Removed this to give more control with flex-basis */
+    /* min-width: 180px; - Removed this to give more control */
+    padding: 0 15px; /* Internal padding for columns */
+    box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+.footer-column.brand-info {
+    /* Adjusted flex-basis to control its initial width more precisely */
+    flex: 0 0 350px; /* Give brand info a fixed width if available */
+    /* max-width: 350px; - flex-basis handles this */
+    padding-right: 30px; /* Added more padding to the right for spacing from next column */
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 40px; /* Adjust as needed, similar to header logo */
+    margin-right: 10px;
+    vertical-align: middle; /* Helps align image and text baseline */
+}
+
+.footer-logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1; /* Helps prevent extra space below text in flex items */
+}
+
+.footer-column p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 280px; /* Control paragraph width */
+    /* Ensure consistency in margin */
+    margin-top: 0;
+}
+
+.footer-column h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    margin-top: 0; /* Remove default top margin */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 12px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #666;
+    font-size: 16px;
+    transition: color 0.3s ease;
+    display: inline-block; /* Helps with hover area and text alignment */
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    /* Align social icons to the right, as seen in the image for the main footer */
+    margin-left: auto; /* Pushes social icons to the right if in a flex container */
+    /* If the social icons are meant to be part of the brand-info column, then this might not be needed */
+    /* They are clearly right-aligned in your design's overall layout */
+}
+
+/* This targets the social icons within the brand-info column to align them to the right. */
+/* This assumes the brand-info column itself is the leftmost item in the main-footer */
+.footer-column.brand-info .social-icons {
+    justify-content: flex-start; /* Ensure they stay to the left within the brand-info column if its wider */
+    margin-left: 0; /* Reset margin-left auto from above if applied */
+    /* The image shows them right aligned with the whole footer, not just the brand info column */
+    /* Let's adjust the structure slightly to achieve this. */
+}
+
+/* --- REVISED APPROACH FOR SOCIAL ICONS ALIGNMENT --- */
+/* To get the social icons to align to the far right,
+   they should ideally be in their own flex item at the end of the main-footer */
+/* If you cannot change the HTML structure as per your previous request,
+   we need to apply margin-left: auto to the social-icons div itself,
+   but ensure it's outside the fixed-width .brand-info column if possible. */
+/* If the social icons MUST stay inside .brand-info, then
+   the design image is showing them right-aligned with the *entire footer*,
+   which implies a different HTML structure or more complex positioning. */
+
+/* For the purpose of "EXACTLY THE SAME ALIGNMENT" as the image you provided (3919ed.png),
+   the social icons are indeed separate, aligned to the far right of the *entire* footer.
+   This means they need their own `footer-column` or be placed directly in `main-footer`.
+   Based on your HTML provided:
+   <div class="social-icons"> is *inside* <div class="footer-column brand-info">.
+   To make it align to the far right, we need to move it out of brand-info column.
+
+   If HTML structure cannot change, then we will have to use absolute positioning,
+   but that is less robust for responsiveness.
+   Let's assume the ideal HTML structure from the last full example I gave you:
+   where social-icons are direct children of main-footer.
+   If it's the structure you provided above (social-icons inside brand-info),
+   the image you provided cannot be achieved with that simple flex layout.
+
+   Let's assume you've used the HTML I provided in the *fullest* footer code:
+   Where social-icons are a separate column, or just after the columns.
+*/
+
+/* If social-icons are meant to be a separate, fourth column aligned right */
+.footer-column.social-column {
+    flex: 0 0 auto; /* Takes content width */
+    margin-left: auto; 
+    padding: 0 15px;
+    align-self: flex-start; /* Align to the top of the footer */
+    padding-top: 5px; /* Adjust if needed to align with first text line */
+}
+
+
+.social-icons img {
+    height: 30px; /* Adjust icon size */
+    width: 30px;
+    transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+
+/* Responsiveness for Footer (adjusted) */
+@media (max-width: 992px) {
+    .main-footer {
+        flex-wrap: wrap;
+        padding: 40px 20px;
+        justify-content: center;
+    }
+
+    .footer-column {
+        flex: 0 0 45%; /* Two columns per row */
+        margin-bottom: 30px;
+        text-align: left; /* Default alignment */
+        padding: 0 15px; /* Reset padding for consistency */
+    }
+
+    .footer-column.brand-info {
+        flex: 0 0 100%; /* Brand info takes full width */
+        text-align: center;
+        max-width: none;
+        padding-right: 15px; /* Reset padding */
+    }
+
+    .footer-logo {
+        justify-content: center; /* Center logo */
+    }
+
+    .footer-column p {
+        margin: 0 auto 30px auto; /* Center paragraph */
+    }
+
+    .footer-column h4 {
+        text-align: center; /* Center headings */
+    }
+
+    .footer-column ul {
+        text-align: center; /* Center list items */
+    }
+
+    /* Adjust social icons for smaller screens */
+    .footer-column.social-column {
+        flex: 0 0 100%; /* Take full width */
+        margin-left: 0; /* Reset auto margin */
+        text-align: center;
+        padding: 0 15px;
+    }
+    .social-icons {
+        justify-content: center; /* Center social icons */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-column {
+        flex: 0 0 100%; /* Each column full width */
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .footer-column.brand-info {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-footer {
+        padding: 30px 15px;
+    }
+    .footer-logo span {
+        font-size: 24px;
+    }
+    .footer-column p,
+    .footer-column ul li a {
+        font-size: 15px;
+    }
+    .footer-column h4 {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+}
