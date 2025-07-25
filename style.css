@@ -516,7 +516,6 @@ body {
 
 
 /* 4. Plants Lover Section - Base Styles (assuming these exist in your main CSS) */
-
 .about-us-section {
     display: flex;
     align-items: center;
@@ -527,7 +526,7 @@ body {
 }
 
 .about-us-section .image-container {
-    position: relative;
+    position: relative; /* The badge will be positioned relative to this container */
     margin-right: 40px;
     width: 50%;
 }
@@ -541,12 +540,13 @@ body {
 
 .about-us-section .trusted-badge {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 20px; /* Positioned 20px from the top edge of the image container */
+    right: 20px; /* Positioned 20px from the right edge of the image container */
+    left: auto; /* Ensure it's not conflicting with a 'left' property if previously set */
     animation: spin 8s linear infinite;
-    width: 200px; /* Increased size for a larger badge */
-    height: 200px; /* Increased size for a larger badge */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow for a larger badge */
+    width: 200px; /* Large badge size */
+    height: 200px; /* Large badge size */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     z-index: 2;
 }
 
@@ -569,8 +569,9 @@ body {
         width: 150px;
         height: 150px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        top: 15px;
-        left: 15px;
+        top: 15px; /* Adjusted for smaller screens */
+        right: 15px; /* Adjusted for smaller screens */
+        left: auto;
     }
 
     .about-us-section .content-container {
