@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
 :root {
@@ -830,11 +831,12 @@ body {
 /* style.css (continued) */
 
 /* Main Footer */
+/* Main Footer */
 .main-footer {
     width: 100%;
     max-width: 1140px; /* Matches the content width of other sections */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Pushes brand-info left, social-column right, and distributes space in between */
     padding: 60px 0; /* Vertical padding */
     box-sizing: border-box;
     background-color: #ffffff; /* White background */
@@ -846,17 +848,15 @@ body {
 }
 
 .footer-column {
-    /* flex: 1; - Removed this to give more control with flex-basis */
-    /* min-width: 180px; - Removed this to give more control */
     padding: 0 15px; /* Internal padding for columns */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
+    box-sizing: border-box;
+    flex-shrink: 0;
+    flex: 1; /* Allows Menu and Features columns to grow/shrink equally to fill remaining space */
 }
 
 .footer-column.brand-info {
-    /* Adjusted flex-basis to control its initial width more precisely */
-    flex: 0 0 350px; /* Give brand info a fixed width if available */
-    /* max-width: 350px; - flex-basis handles this */
-    padding-right: 30px; /* Added more padding to the right for spacing from next column */
+    flex: 0 0 350px; /* Brand info has a fixed width and does not grow/shrink */
+    padding-right: 30px; /* Spacing from the next column */
 }
 
 .footer-logo {
@@ -866,9 +866,9 @@ body {
 }
 
 .footer-logo img {
-    height: 40px; /* Adjust as needed, similar to header logo */
+    height: 40px;
     margin-right: 10px;
-    vertical-align: middle; /* Helps align image and text baseline */
+    vertical-align: middle;
 }
 
 .footer-logo span {
@@ -876,7 +876,7 @@ body {
     font-size: 28px;
     font-weight: 700;
     color: var(--text-color);
-    line-height: 1; /* Helps prevent extra space below text in flex items */
+    line-height: 1;
 }
 
 .footer-column p {
@@ -884,8 +884,7 @@ body {
     color: #666;
     line-height: 1.6;
     margin-bottom: 30px;
-    max-width: 280px; /* Control paragraph width */
-    /* Ensure consistency in margin */
+    max-width: 280px;
     margin-top: 0;
 }
 
@@ -895,7 +894,7 @@ body {
     font-weight: 700;
     color: var(--text-color);
     margin-bottom: 25px;
-    margin-top: 0; /* Remove default top margin */
+    margin-top: 0;
 }
 
 .footer-column ul {
@@ -913,135 +912,92 @@ body {
     color: #666;
     font-size: 16px;
     transition: color 0.3s ease;
-    display: inline-block; /* Helps with hover area and text alignment */
+    display: inline-block;
 }
 
 .footer-column ul li a:hover {
     color: var(--primary-color);
 }
 
+/* Social Icons Column */
+.footer-column.social-column {
+    flex: 0 0 auto; /* Takes content width and doesn't grow/shrink */
+    margin-left: auto; /* Pushes this column to the far right within the flex container */
+    padding: 0 15px;
+    align-self: flex-start; /* Aligns to the top of the footer */
+    padding-top: 5px; /* Adjust this value to fine-tune vertical alignment with other content */
+}
+
 .social-icons {
     display: flex;
-    gap: 15px; /* Space between icons */
-    /* Align social icons to the right, as seen in the image for the main footer */
-    margin-left: auto; /* Pushes social icons to the right if in a flex container */
-    /* If the social icons are meant to be part of the brand-info column, then this might not be needed */
-    /* They are clearly right-aligned in your design's overall layout */
+    gap: 15px; /* Space between the social icons */
 }
-
-/* This targets the social icons within the brand-info column to align them to the right. */
-/* This assumes the brand-info column itself is the leftmost item in the main-footer */
-.footer-column.brand-info .social-icons {
-    justify-content: flex-start; /* Ensure they stay to the left within the brand-info column if its wider */
-    margin-left: 0; /* Reset margin-left auto from above if applied */
-    /* The image shows them right aligned with the whole footer, not just the brand info column */
-    /* Let's adjust the structure slightly to achieve this. */
-}
-
-/* --- REVISED APPROACH FOR SOCIAL ICONS ALIGNMENT --- */
-/* To get the social icons to align to the far right,
-   they should ideally be in their own flex item at the end of the main-footer */
-/* If you cannot change the HTML structure as per your previous request,
-   we need to apply margin-left: auto to the social-icons div itself,
-   but ensure it's outside the fixed-width .brand-info column if possible. */
-/* If the social icons MUST stay inside .brand-info, then
-   the design image is showing them right-aligned with the *entire footer*,
-   which implies a different HTML structure or more complex positioning. */
-
-/* For the purpose of "EXACTLY THE SAME ALIGNMENT" as the image you provided (3919ed.png),
-   the social icons are indeed separate, aligned to the far right of the *entire* footer.
-   This means they need their own `footer-column` or be placed directly in `main-footer`.
-   Based on your HTML provided:
-   <div class="social-icons"> is *inside* <div class="footer-column brand-info">.
-   To make it align to the far right, we need to move it out of brand-info column.
-
-   If HTML structure cannot change, then we will have to use absolute positioning,
-   but that is less robust for responsiveness.
-   Let's assume the ideal HTML structure from the last full example I gave you:
-   where social-icons are direct children of main-footer.
-   If it's the structure you provided above (social-icons inside brand-info),
-   the image you provided cannot be achieved with that simple flex layout.
-
-   Let's assume you've used the HTML I provided in the *fullest* footer code:
-   Where social-icons are a separate column, or just after the columns.
-*/
-
-/* If social-icons are meant to be a separate, fourth column aligned right */
-.footer-column.social-column {
-    flex: 0 0 auto; /* Takes content width */
-    margin-left: auto; 
-    padding: 0 15px;
-    align-self: flex-start; /* Align to the top of the footer */
-    padding-top: 5px; /* Adjust if needed to align with first text line */
-}
-
 
 .social-icons img {
-    height: 30px; /* Adjust icon size */
+    height: 30px;
     width: 30px;
     transition: transform 0.2s ease;
 }
 
 .social-icons img:hover {
-    transform: translateY(-3px); /* Slight lift effect on hover */
+    transform: translateY(-3px);
 }
 
 
-/* Responsiveness for Footer (adjusted) */
+/* --- Responsive Adjustments for Footer --- */
 @media (max-width: 992px) {
     .main-footer {
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allows columns to wrap to the next line */
         padding: 40px 20px;
-        justify-content: center;
+        justify-content: center; /* Centers columns when they wrap */
     }
 
     .footer-column {
-        flex: 0 0 45%; /* Two columns per row */
+        flex: 0 0 45%; /* Two columns per row for middle screen sizes */
         margin-bottom: 30px;
-        text-align: left; /* Default alignment */
-        padding: 0 15px; /* Reset padding for consistency */
+        text-align: left;
+        padding: 0 15px;
     }
 
     .footer-column.brand-info {
         flex: 0 0 100%; /* Brand info takes full width */
         text-align: center;
         max-width: none;
-        padding-right: 15px; /* Reset padding */
+        padding-right: 15px;
+        margin-bottom: 30px;
     }
 
     .footer-logo {
-        justify-content: center; /* Center logo */
+        justify-content: center; /* Center logo when brand-info is full width */
     }
 
     .footer-column p {
-        margin: 0 auto 30px auto; /* Center paragraph */
+        margin: 0 auto 30px auto; /* Center paragraph when brand-info is full width */
     }
 
-    .footer-column h4 {
-        text-align: center; /* Center headings */
-    }
-
+    .footer-column h4,
     .footer-column ul {
-        text-align: center; /* Center list items */
+        text-align: center; /* Center headings and lists for wrapped columns */
     }
 
-    /* Adjust social icons for smaller screens */
     .footer-column.social-column {
-        flex: 0 0 100%; /* Take full width */
-        margin-left: 0; /* Reset auto margin */
+        flex: 0 0 100%; /* Social column also takes full width */
+        margin-left: 0; /* Remove auto margin */
         text-align: center;
         padding: 0 15px;
+        margin-bottom: 0; /* Adjust as needed */
     }
     .social-icons {
-        justify-content: center; /* Center social icons */
+        justify-content: center; /* Center social icons when full width */
     }
 }
 
 @media (max-width: 768px) {
     .footer-column {
-        flex: 0 0 100%; /* Each column full width */
+        flex: 0 0 100%; /* Each column takes full width on smaller mobile screens */
         text-align: center;
         padding: 0 10px;
+        margin-bottom: 25px;
     }
 
     .footer-column.brand-info {
@@ -1050,6 +1006,10 @@ body {
 
     .footer-logo {
         margin-bottom: 15px;
+    }
+
+    .footer-column.social-column {
+        margin-bottom: 0; 
     }
 }
 
