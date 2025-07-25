@@ -1,8 +1,22 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap');
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+main,
+section {
+    margin: 0;
+    padding: 0;
+}
+
 :root {
-    --primary-color: #ff6f61; /* Example highlight color, adjust as needed */
+    --primary-color: #ff6f61;
+    /* Example highlight color, adjust as needed */
     --text-color: #333;
     --light-grey: #f8f8f8;
 }
@@ -12,21 +26,23 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #ffffff; /* White background for the whole page */
+    background-color: #ffffff;
+    /* White background for the whole page */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+/* 1. Navbar */
 .navbar {
     width: 100%;
-    max-width: 1140px; /* Matches the container width from your image */
+    max-width: 1140px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 0;
     box-sizing: border-box;
-    position: relative; /* For alignment of numbers */
+    position: relative;
 }
 
 .logo {
@@ -35,7 +51,7 @@ body {
 }
 
 .logo img {
-    height: 40px; /* Adjust as needed */
+    height: 40px;
     margin-right: 10px;
 }
 
@@ -44,6 +60,11 @@ body {
     font-size: 28px;
     font-weight: 700;
     color: var(--text-color);
+}
+
+.nav-links {
+    /* Desktop: visible */
+    display: block;
 }
 
 .nav-links ul {
@@ -72,10 +93,11 @@ body {
 .cart {
     display: flex;
     align-items: center;
+    /* Ensure cart name is visible for desktop */
 }
 
 .cart img {
-    height: 24px; /* Adjust as needed */
+    height: 24px;
     margin-right: 8px;
 }
 
@@ -85,28 +107,71 @@ body {
     font-weight: 400;
 }
 
-/* Hero Section */
+
+.navbar::before,
+.navbar::after {
+    display: none;
+}
+
+/* 1. Navbar - Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px;
+        
+    }
+
+    .nav-links {
+        
+        display: none;
+    }
+
+    .cart {
+        
+        margin-left: auto;
+    }
+
+    .cart img {
+        margin-right: 5px; 
+    }
+
+    .cart span {
+        font-size: 15px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .logo span {
+        font-size: 24px;
+    }
+
+    .cart span {
+        font-size: 14px;
+    }
+}
+
+
+/* 2. Banner (Hero Section) */
 .hero-section {
     width: 100%;
-    max-width: 1140px; /* Matches the container width */
+    max-width: 1140px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 60px 0; /* Adjust padding as needed */
-    margin-top: 20px; /* Space between header and hero */
-    background-color: var(--light-grey); /* Light grey background for the hero section as per image */
-    border-radius: 8px; /* Optional: slight border-radius if desired */
+    padding: 60px 0;
+    margin-top: 20px;
+    background-color: var(--light-grey);
+    border-radius: 8px;
     box-sizing: border-box;
 }
 
 .hero-content {
     flex: 1;
-    padding: 0 40px; /* Internal padding for content */
+    padding: 0 40px;
 }
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 60px; /* Adjust as needed for "ALWAYS FRESH" */
+    font-size: 60px;
     font-weight: 700;
     color: var(--text-color);
     line-height: 1.1;
@@ -114,92 +179,49 @@ body {
 }
 
 .hero-content h1 .highlight {
-    color: var(--primary-color); /* The orange color for "FLOWERS" */
+    color: var(--primary-color);
 }
 
 .hero-content p {
     font-size: 18px;
     color: var(--text-color);
     line-height: 1.6;
-    max-width: 500px; /* Limit paragraph width */
+    max-width: 500px;
 }
 
 .hero-image {
     flex: 1;
     display: flex;
-    justify-content: flex-end; /* Align image to the right */
-    padding: 0 40px; /* Internal padding for image */
+    justify-content: flex-end;
+    padding: 0 40px;
 }
 
 .hero-image img {
     max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px; /* Optional: if the image has rounded corners */
+    border-radius: 8px;
 }
 
-/* Numbers (1140 and 71) */
-/* These numbers in your image seem to be for layout/measurement,
-   and not typically part of the final HTML structure unless they
-   represent specific content. If they are decorative or informative
-   for the user, you can position them absolutely. */
-.navbar::before {
-    content: "1140";
-    position: absolute;
-    top: 50%; /* Adjust as needed */
-    left: 50%; /* Adjust as needed */
-    transform: translate(-50%, -50%);
-    background-color: #007bff; /* Blue background for numbers */
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    z-index: 10;
-    display: none; /* Hide by default unless you want them visible */
-}
-
-.navbar::after {
-    content: "71";
-    position: absolute;
-    top: 50%; /* Adjust as needed */
-    left: calc(50% + 70px); /* Adjust position relative to 1140 */
-    transform: translate(-50%, -50%);
-    background-color: #007bff; /* Blue background for numbers */
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    z-index: 10;
-    display: none; /* Hide by default unless you want them visible */
-}
-
-/* For responsiveness (basic example) */
+/* 2. Banner - Mobile Responsiveness */
 @media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
-    }
-
-    .nav-links ul {
-        flex-direction: column;
-        margin-top: 15px;
-        align-items: flex-start;
-    }
-
-    .nav-links ul li {
-        margin: 10px 0;
-    }
-
     .hero-section {
-        flex-direction: column;
+        flex-direction: column; /* Image moves to the top, content after image */
         padding: 40px 20px;
     }
 
     .hero-content,
     .hero-image {
+        order: -1; /* Image moves to the top */
         padding: 0;
-        text-align: center;
+        margin-bottom: 30px; /* Space between image and content */
+        width: 100%; /* Image takes full width */
+    }
+
+    .hero-content {
+        padding: 0;
+        text-align: left; /* Content left aligned as Figma */
+        width: 100%; /* Content takes full width */
     }
 
     .hero-content h1 {
@@ -212,14 +234,6 @@ body {
 }
 
 @media (max-width: 480px) {
-    .logo span {
-        font-size: 24px;
-    }
-
-    .cart span {
-        font-size: 14px;
-    }
-
     .hero-content h1 {
         font-size: 36px;
     }
@@ -228,27 +242,27 @@ body {
         font-size: 16px;
     }
 }
-/* style.css (continued) */
 
-/* Plants Section */
+
+/* 3. Plants Section */
 .plants-section {
     width: 100%;
-    max-width: 1140px; /* Matches the container width */
-    padding: 80px 0; /* Adjust padding as needed */
+    max-width: 1140px;
+    padding: 80px 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffffff; /* White background as per image */
-    border: 2px solid #e0e0e0; /* Border around the entire section as seen in the image */
-    border-radius: 8px; /* Slightly rounded corners */
-    margin-top: 40px; /* Space between hero and plants section */
+    background-color: #ffffff;
+    
+    border-radius: 8px;
+    margin-top: 40px;
 }
 
 .plants-header {
-    text-align: center;
-    margin-bottom: 60px; /* Space between header and product grid */
-    padding: 0 20px; /* Padding for text */
+    text-align: center; /* Centered Title and subtitle as Figma */
+    margin-bottom: 60px;
+    padding: 0 20px;
 }
 
 .plants-header h2 {
@@ -260,30 +274,30 @@ body {
 }
 
 .plants-header h2 .highlight-orange {
-    color: var(--primary-color); /* The orange color */
+    color: var(--primary-color);
 }
 
 .plants-header p {
     font-size: 18px;
     color: var(--text-color);
     line-height: 1.6;
-    max-width: 700px; /* Limit paragraph width */
+    max-width: 700px;
     margin: 0 auto;
 }
 
-/* Product Grid */
+/* Product Grid - 8 cards with 4 Column View */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 30px; /* Space between product cards */
+    gap: 30px;
     width: 100%;
-    padding: 0 30px; /* Padding for the grid inside the section */
+    padding: 0 30px;
     box-sizing: border-box;
 }
 
 .product-card {
-    background-color: #fcfcfc; /* Slightly off-white for cards, if needed, or pure white */
-    border: 1px solid #eee; /* Light border for each card */
+    background-color: #fcfcfc;
+    border: 1px solid #eee;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -291,13 +305,13 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .product-card img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px; /* Image border-radius */
+    border-radius: 8px;
     margin-bottom: 15px;
 }
 
@@ -312,12 +326,12 @@ body {
 .product-card .price {
     font-size: 18px;
     font-weight: 700;
-    color: var(--primary-color); /* Orange color for price */
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
 .add-to-cart-btn {
-    background-color: var(--primary-color); /* Orange background */
+    background-color: var(--primary-color);
     color: white;
     padding: 12px 25px;
     border: none;
@@ -326,14 +340,14 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%; /* Full width button */
+    width: 100%;
 }
 
 .add-to-cart-btn:hover {
-    background-color: #e55e52; /* Slightly darker orange on hover */
+    background-color: #e55e52;
 }
 
-/* Responsiveness for Plants Section */
+/* 3. Plants Section - Mobile Responsiveness */
 @media (max-width: 1024px) {
     .product-grid {
         grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
@@ -344,14 +358,17 @@ body {
     .plants-section {
         padding: 60px 0;
     }
+
     .plants-header h2 {
         font-size: 40px;
     }
+
     .plants-header p {
         font-size: 16px;
     }
+
     .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr); /* Display Cards in 2 Collumn */
         gap: 20px;
         padding: 0 20px;
     }
@@ -360,67 +377,113 @@ body {
 @media (max-width: 480px) {
     .plants-section {
         padding: 40px 0;
-        border: none; /* Remove border on very small screens for better fit */
+        border: none;
     }
+
     .plants-header h2 {
         font-size: 32px;
     }
+
     .plants-header p {
         font-size: 14px;
     }
+
     .product-grid {
         grid-template-columns: 1fr; /* 1 column on mobile */
         gap: 15px;
         padding: 0 15px;
     }
+
     .product-card {
         padding: 15px;
     }
 }
-/* style.css (continued) */
 
-/* About Us Section (Flower & Plants Lover) */
+
+/* 4. Plants Lover Section (About Us Section) */
+/* --- Animation for Trusted Plant Lover Badge --- */
+@keyframes spin {
+    from {
+        transform: translate(45%, -45%) rotate(0deg);
+    }
+    to {
+        transform: translate(45%, -45%) rotate(360deg);
+    }
+}
+
+@media (max-width: 992px) {
+    @keyframes spin {
+        from {
+            transform: translate(35%, -35%) rotate(0deg);
+        }
+        to {
+            transform: translate(35%, -35%) rotate(360deg);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    @keyframes spin {
+        from {
+            transform: translate(30%, -30%) rotate(0deg);
+        }
+        to {
+            transform: translate(30%, -30%) rotate(360deg);
+        }
+    }
+}
+
+
 .about-us-section {
     width: 100%;
-    max-width: 1140px; /* Matches the container width */
+    max-width: 1140px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 0; /* Adjust padding as needed */
+    padding: 80px 0;
     box-sizing: border-box;
-    margin-top: 40px; /* Space between previous section and this one */
-    background-color: #ffffff; /* White background */
+    margin: 40px auto;
+    background-color: #ffffff;
 }
 
 .about-us-section .image-container {
     flex: 1;
-    position: relative; /* For positioning the badge */
-    margin-right: 40px; /* Space between image and content */
-    display: flex; /* To center the image within its flex item */
+    position: relative; /* Crucial for absolute positioning of the badge */
+    margin-right: 40px;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .about-us-section .florist-image {
-    max-width: 100%; /* Ensure image fits container */
+    max-width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px; /* Optional: if the image has rounded corners */
+    border-radius: 8px;
 }
 
+/* Trusted Plant Lover Badge */
 .about-us-section .trusted-badge {
     position: absolute;
-    top: -40px; /* Adjust as needed to place it above and slightly left/right */
-    left: 70%; /* Adjust as needed */
-    transform: translateX(-50%); /* Center horizontally relative to its left */
-    width: 150px; /* Adjust badge size */
+    top: 0;
+    right: 0;
+    /* Position a Trusted badge at the Plant Lover Image as Figma */
+    /* Apply the infinite spin animation */
+    animation: spin 8s linear infinite; /* 8s duration, linear speed, infinite repetition */
+    
+    /* Subtle black shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    width: 150px;
     height: auto;
-    z-index: 2; /* Ensure badge is above the image */
+    z-index: 2;
+    border-radius: 50%; /* Helps the shadow follow the circular shape of the badge */
 }
+
 
 .about-us-section .content-container {
     flex: 1;
-    padding-left: 40px; /* Padding for content */
+    padding-left: 40px;
 }
 
 .about-us-section h2 {
@@ -442,46 +505,47 @@ body {
     font-size: 18px;
     color: var(--text-color);
     line-height: 1.6;
-    margin-bottom: 15px; /* Space between list items */
+    margin-bottom: 15px;
     position: relative;
     padding-left: 30px; /* Space for custom bullet */
 }
 
 .about-us-section ul li::before {
     content: '•'; /* Custom bullet point */
-    font-size: 24px; /* Size of the bullet */
-    color: var(--primary-color); /* Orange color for bullet */
+    font-size: 24px;
+    color: var(--primary-color);
     position: absolute;
     left: 0;
-    top: 0px; /* Adjust vertical alignment */
+    top: 0px;
 }
 
 
-/* Responsiveness for About Us Section */
+/* 4. Plants Lover Section - Mobile Responsiveness */
 @media (max-width: 992px) {
     .about-us-section {
-        flex-direction: column; /* Stack image and content */
+        flex-direction: column; /* Image moves to the top, content after image */
         padding: 60px 20px;
     }
 
     .about-us-section .image-container {
         margin-right: 0;
         margin-bottom: 40px; /* Space between image and content when stacked */
-        width: 100%; /* Ensure image container takes full width */
-        max-width: 600px; /* Limit image width on smaller screens */
+        width: 100%;
+        max-width: 600px;
         position: relative;
+        order: -1; /* Image moves to the top */
     }
 
     .about-us-section .trusted-badge {
-        top: -20px; /* Adjust badge position */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 120px;
+        animation: spin 8s linear infinite; /* Animation applied here too */
+        width: 120px; /* Adjust badge size for smaller screens */
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     }
 
     .about-us-section .content-container {
         padding-left: 0;
-        text-align: center; /* Center text content */
+        text-align: left; /* Content left aligned as Figma */
+        width: 100%; /* Content takes full width */
     }
 
     .about-us-section h2 {
@@ -491,14 +555,23 @@ body {
     .about-us-section ul {
         text-align: left; /* Keep list items left-aligned */
         margin: 0 auto;
-        max-width: 600px; /* Limit list width */
+        max-width: 600px;
     }
 }
 
-@media (max-width: 768px) {
+/* Hide the Trusted badge in Mobile Device */
+@media (max-width: 767px) { /* Adjust breakpoint if 'Mobile Device' is larger than 767px */
+    .about-us-section .trusted-badge {
+        display: none;
+    }
+}
+
+
+@media (max-width: 768px) { /* This media query was already here, keeping for other styles */
     .about-us-section h2 {
         font-size: 36px;
     }
+
     .about-us-section ul li {
         font-size: 16px;
     }
@@ -508,280 +581,93 @@ body {
     .about-us-section {
         padding: 40px 15px;
     }
+
     .about-us-section h2 {
         font-size: 30px;
     }
+
     .about-us-section ul li {
         font-size: 15px;
         padding-left: 25px;
     }
+
     .about-us-section ul li::before {
         font-size: 20px;
     }
+
     .about-us-section .trusted-badge {
-        top: -10px; /* Further adjust badge for small screens */
+        animation: spin 8s linear infinite;
         width: 100px;
-    }
-}
-/* style.css (continued) */
-
-/* Latest Deals Section Header */
-.latest-deals-header {
-    width: 100%;
-    max-width: 1140px; /* Matches the container width */
-    text-align: center;
-    padding: 80px 20px 40px; /* Top, horizontal, bottom padding */
-    box-sizing: border-box;
-    margin-top: 40px; /* Space from previous section */
-    background-color: #ffffff; /* White background */
-}
-
-.latest-deals-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 20px;
-}
-
-.latest-deals-header h2 .highlight-orange {
-    color: var(--primary-color); /* The orange color */
-}
-
-.latest-deals-header p {
-    font-size: 18px;
-    color: var(--text-color);
-    line-height: 1.6;
-    max-width: 700px; /* Limit paragraph width */
-    margin: 0 auto; /* Center the paragraph */
-}
-
-/* Responsiveness for Latest Deals Header */
-@media (max-width: 768px) {
-    .latest-deals-header {
-        padding: 60px 20px 30px;
-    }
-    .latest-deals-header h2 {
-        font-size: 40px;
-    }
-    .latest-deals-header p {
-        font-size: 16px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 }
 
-@media (max-width: 480px) {
-    .latest-deals-header {
-        padding: 40px 15px 20px;
-    }
-    .latest-deals-header h2 {
-        font-size: 32px;
-    }
-    .latest-deals-header p {
-        font-size: 15px;
-    }
-}
 
-/* style.css (continued) */
-
-/* Deals Showcase Section */
-.deals-showcase {
-    width: 100%;
-    max-width: 1140px; /* Matches the container width */
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* One column for small cards, two for large */
-    grid-template-rows: repeat(2, minmax(200px, 1fr)); /* Two rows, minimum height 200px, flexible */
-    gap: 30px; /* Space between deal cards */
-    padding: 40px 0; /* Padding around the grid */
-    box-sizing: border-box;
-    margin-top: 20px; /* Space from previous section */
-}
-
-.deal-card {
-    border-radius: 8px;
-    overflow: hidden; /* Ensures image corners are rounded */
-    display: flex;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-    text-align: center;
-    color: white; /* Text color on the image */
-    position: relative;
-    background-size: cover; /* Cover the entire area */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat;
-    min-height: 250px; /* Ensure a minimum height for all cards */
-}
-
-/* Overlay for better text readability */
-.deal-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
-    z-index: 1;
-}
-
-.deal-card .deal-content {
-    position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
-    padding: 20px;
-}
-
-.deal-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    line-height: 1.2;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Subtle shadow for text readability */
-}
-
-.deal-card .shop-now-btn {
-    display: inline-block;
-    background-color: transparent; /* No background */
-    color: white;
-    border: 2px solid white; /* White border */
-    padding: 10px 25px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.deal-card .shop-now-btn:hover {
-    background-color: white;
-    color: var(--primary-color); /* Orange text on hover */
-}
-
-/* Specific grid placement for cards */
-.deals-showcase .small-card:nth-child(1) {
-    grid-column: 1 / 2; /* First small card in the first column */
-    grid-row: 1 / 2;    /* In the first row */
-}
-
-.deals-showcase .small-card:nth-child(2) {
-    grid-column: 1 / 2; /* Second small card in the first column */
-    grid-row: 2 / 3;    /* In the second row */
-}
-
-.deals-showcase .large-card {
-    grid-column: 2 / 3; /* Large card spans the second column */
-    grid-row: 1 / 3;    /* Large card spans both rows */
-}
-
-
-/* Responsiveness for Deals Showcase */
-@media (max-width: 992px) {
-    .deals-showcase {
-        grid-template-columns: 1fr; /* Single column layout */
-        grid-template-rows: auto; /* Auto rows */
-        padding: 30px 20px;
-    }
-
-    .deals-showcase .small-card,
-    .deals-showcase .large-card {
-        grid-column: auto; /* Reset column span */
-        grid-row: auto;    /* Reset row span */
-        min-height: 220px; /* Adjust height for mobile */
-    }
-
-    .deal-card h3 {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 480px) {
-    .deals-showcase {
-        gap: 20px;
-        padding: 20px 15px;
-    }
-    .deal-card {
-        min-height: 180px;
-    }
-    .deal-card h3 {
-        font-size: 24px;
-        margin-bottom: 10px;
-    }
-    .deal-card .shop-now-btn {
-        padding: 8px 20px;
-        font-size: 14px;
-    }
-}
-
-/* style.css (continued) */
-
-/* Subscribe Section */
+/* 5. Join Section */
 .subscribe-section {
-    width: 100%;
-    min-height: 400px; /* Adjust height as needed */
+    width: 100vw; /* Full viewport width */
+    min-height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white; /* Text color */
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/news-letter-bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative; /* For the overlay */
-    margin-top: 60px; /* Space from previous section */
-    padding: 40px 20px; /* Internal padding */
+    position: relative;
+    margin-top: 60px;
+    /* This negative margin is for full-width sections on centered layouts */
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    padding: 80px 20px;
     box-sizing: border-box;
 }
 
-/* Optional: Dark overlay for better text readability */
-.subscribe-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent dark overlay */
-    z-index: 1;
-}
-
-.subscribe-section .subscribe-content {
+.subscribe-content {
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
-    max-width: 700px; /* Limit content width */
+    z-index: 2;
+    max-width: 700px;
+    width: 100%;
+    padding: 0 20px;
 }
 
+/* Heading */
 .subscribe-section h2 {
     font-family: 'Playfair Display', serif;
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 30px;
     line-height: 1.2;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Subtle shadow for text readability */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.subscribe-section .subscribe-form {
+/* Form layout */
+.subscribe-form {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Space between input and button */
-    max-width: 500px; /* Limit form width */
-    margin: 0 auto; /* Center the form */
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-.subscribe-section input[type="email"] {
-    flex-grow: 1; /* Allows input to take available space */
+.subscribe-form input[type="email"] {
+    flex: 1;
     padding: 15px 20px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
-    outline: none; /* Remove default focus outline */
-    color: #333; /* Input text color */
+    outline: none;
+    color: #333;
 }
 
-.subscribe-section input[type="email"]::placeholder {
-    color: #999;
+.subscribe-form input::placeholder {
+    color: #aaa;
 }
 
-.subscribe-section .subscribe-btn {
-    background-color: var(--primary-color); /* Orange background from CSS variable */
+.subscribe-btn {
+    background-color: var(--primary-color);
     color: white;
     padding: 15px 30px;
     border: none;
@@ -792,71 +678,76 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.subscribe-section .subscribe-btn:hover {
-    background-color: #e55e52; /* Slightly darker orange on hover */
+.subscribe-btn:hover {
+    background-color: #e55e52;
 }
 
-/* Responsiveness for Subscribe Section */
+/* 5. Join Section - Mobile Responsive */
 @media (max-width: 768px) {
     .subscribe-section {
-        min-height: 350px;
-        padding: 30px 15px;
+        min-height: 400px;
+        padding: 50px 20px;
+        /* The margin-left/right calc() is important for full width on smaller screens too */
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
     }
+
     .subscribe-section h2 {
         font-size: 40px;
         margin-bottom: 25px;
     }
-    .subscribe-section .subscribe-form {
-        flex-direction: column; /* Stack input and button vertically */
+
+    .subscribe-form {
+        flex-direction: column; /* Stack input and button */
         gap: 15px;
-        max-width: 350px; /* Adjust form width */
+        max-width: 350px;
     }
-    .subscribe-section input[type="email"],
-    .subscribe-section .subscribe-btn {
-        width: 100%; /* Full width when stacked */
+
+    .subscribe-form input[type="email"],
+    .subscribe-btn {
+        width: 100%; /* Full width for input and button */
         padding: 12px 15px;
     }
 }
 
 @media (max-width: 480px) {
     .subscribe-section {
-        min-height: 300px;
+        min-height: 350px;
+        padding: 40px 15px;
     }
+
     .subscribe-section h2 {
         font-size: 32px;
         margin-bottom: 20px;
     }
 }
 
-/* style.css (continued) */
 
-/* Main Footer */
-/* Main Footer */
+/* 6. Footer Section */
 .main-footer {
     width: 100%;
-    max-width: 1140px; /* Matches the content width of other sections */
+    max-width: 1140px;
     display: flex;
-    justify-content: space-between; /* Pushes brand-info left, social-column right, and distributes space in between */
-    padding: 60px 0; /* Vertical padding */
+    justify-content: space-between;
+    padding: 60px 0;
     box-sizing: border-box;
-    background-color: #ffffff; /* White background */
-    margin-top: 60px; /* Space from the section above it */
-    border-top: 1px solid #eee; /* Optional: light line at the top of the footer */
-    /* Ensure footer is centered on the page */
+    background-color: #ffffff;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
     margin-left: auto;
     margin-right: auto;
 }
 
 .footer-column {
-    padding: 0 15px; /* Internal padding for columns */
+    padding: 0 15px;
     box-sizing: border-box;
     flex-shrink: 0;
-    flex: 1; /* Allows Menu and Features columns to grow/shrink equally to fill remaining space */
+    flex: 1;
 }
 
 .footer-column.brand-info {
-    flex: 0 0 350px; /* Brand info has a fixed width and does not grow/shrink */
-    padding-right: 30px; /* Spacing from the next column */
+    flex: 0 0 350px;
+    padding-right: 30px;
 }
 
 .footer-logo {
@@ -919,18 +810,18 @@ body {
     color: var(--primary-color);
 }
 
-/* Social Icons Column */
+/* Social Icons Column - As Figma */
 .footer-column.social-column {
-    flex: 0 0 auto; /* Takes content width and doesn't grow/shrink */
-    margin-left: auto; /* Pushes this column to the far right within the flex container */
+    flex: 0 0 auto;
+    margin-left: auto;
     padding: 0 15px;
-    align-self: flex-start; /* Aligns to the top of the footer */
-    padding-top: 5px; /* Adjust this value to fine-tune vertical alignment with other content */
+    align-self: flex-start;
+    padding-top: 5px;
 }
 
 .social-icons {
     display: flex;
-    gap: 15px; /* Space between the social icons */
+    gap: 15px;
 }
 
 .social-icons img {
@@ -944,16 +835,16 @@ body {
 }
 
 
-/* --- Responsive Adjustments for Footer --- */
+/* 6. Footer Section - Mobile Responsiveness */
 @media (max-width: 992px) {
     .main-footer {
-        flex-wrap: wrap; /* Allows columns to wrap to the next line */
+        flex-wrap: wrap;
         padding: 40px 20px;
-        justify-content: center; /* Centers columns when they wrap */
+        justify-content: center;
     }
 
     .footer-column {
-        flex: 0 0 45%; /* Two columns per row for middle screen sizes */
+        flex: 0 0 45%; /* Two columns per row */
         margin-bottom: 30px;
         text-align: left;
         padding: 0 15px;
@@ -968,27 +859,28 @@ body {
     }
 
     .footer-logo {
-        justify-content: center; /* Center logo when brand-info is full width */
+        justify-content: center;
     }
 
     .footer-column p {
-        margin: 0 auto 30px auto; /* Center paragraph when brand-info is full width */
+        margin: 0 auto 30px auto;
     }
 
     .footer-column h4,
     .footer-column ul {
-        text-align: center; /* Center headings and lists for wrapped columns */
+        text-align: center;
     }
 
     .footer-column.social-column {
-        flex: 0 0 100%; /* Social column also takes full width */
-        margin-left: 0; /* Remove auto margin */
+        flex: 0 0 100%;
+        margin-left: 0;
         text-align: center;
         padding: 0 15px;
-        margin-bottom: 0; /* Adjust as needed */
+        margin-bottom: 0;
     }
+
     .social-icons {
-        justify-content: center; /* Center social icons when full width */
+        justify-content: center;
     }
 }
 
@@ -1009,7 +901,7 @@ body {
     }
 
     .footer-column.social-column {
-        margin-bottom: 0; 
+        margin-bottom: 0;
     }
 }
 
@@ -1017,15 +909,202 @@ body {
     .main-footer {
         padding: 30px 15px;
     }
+
     .footer-logo span {
         font-size: 24px;
     }
+
     .footer-column p,
     .footer-column ul li a {
         font-size: 15px;
     }
+
     .footer-column h4 {
         font-size: 16px;
         margin-bottom: 20px;
+    }
+}
+
+/* 7. Challenges Part (Latest Deal Section) */
+.latest-deals-header {
+    width: 100%;
+    max-width: 1140px;
+    text-align: center;
+    padding: 80px 20px 40px;
+    box-sizing: border-box;
+    margin-top: 40px;
+    background-color: #ffffff;
+}
+
+.latest-deals-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.latest-deals-header h2 .highlight-orange {
+    color: var(--primary-color);
+}
+
+.latest-deals-header p {
+    font-size: 18px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Deals Showcase Section - Card layout like Figma */
+.deals-showcase {
+    width: 100%;
+    max-width: 1140px;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* One column for small cards, two for large */
+    grid-template-rows: repeat(2, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.deal-card {
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 250px;
+}
+
+.deal-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.deal-card .deal-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.deal-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.deal-card .shop-now-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.deal-card .shop-now-btn:hover {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+/* Specific grid placement for cards */
+.deals-showcase .small-card:nth-child(1) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.deals-showcase .small-card:nth-child(2) {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.deals-showcase .large-card {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+}
+
+/* 7. Challenges Part (Latest Deal Section) - Mobile Responsiveness */
+@media (max-width: 992px) {
+    .latest-deals-header {
+        padding: 60px 20px 30px;
+    }
+
+    .latest-deals-header h2 {
+        font-size: 40px;
+    }
+
+    .latest-deals-header p {
+        font-size: 16px;
+    }
+
+    .deals-showcase {
+        grid-template-columns: 1fr; /* Show a card on display like Figma - single column */
+        grid-template-rows: auto;
+        padding: 30px 20px;
+    }
+
+    .deals-showcase .small-card,
+    .deals-showcase .large-card {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 220px;
+    }
+
+    .deal-card h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .latest-deals-header {
+        padding: 40px 15px 20px;
+    }
+
+    .latest-deals-header h2 {
+        font-size: 32px;
+    }
+
+    .latest-deals-header p {
+        font-size: 15px;
+    }
+
+    .deals-showcase {
+        gap: 20px;
+        padding: 20px 15px;
+    }
+
+    .deal-card {
+        min-height: 180px;
+    }
+
+    .deal-card h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .deal-card .shop-now-btn {
+        padding: 8px 20px;
+        font-size: 14px;
     }
 }
