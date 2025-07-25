@@ -515,32 +515,68 @@ body {
 }
 
 
-/* 4. Plants Lover Section - Mobile Responsiveness */
+/* 4. Plants Lover Section - Base Styles (assuming these exist in your main CSS) */
+
+.about-us-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-us-section .image-container {
+    position: relative;
+    margin-right: 40px;
+    width: 50%;
+}
+
+.about-us-section .florist-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.about-us-section .trusted-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    animation: spin 8s linear infinite;
+    width: 200px; /* Increased size for a larger badge */
+    height: 200px; /* Increased size for a larger badge */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow for a larger badge */
+    z-index: 2;
+}
+
 @media (max-width: 992px) {
     .about-us-section {
-        flex-direction: column; 
+        flex-direction: column;
         padding: 60px 20px;
     }
 
     .about-us-section .image-container {
         margin-right: 0;
-        margin-bottom: 40px; 
+        margin-bottom: 40px;
         width: 100%;
         max-width: 600px;
-        position: relative;
-        order: -1; /* Image moves to the top */
+        order: -1;
     }
 
     .about-us-section .trusted-badge {
-        animation: spin 8s linear infinite; 
-        width: 120px; 
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        animation: spin 8s linear infinite;
+        width: 150px;
+        height: 150px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        top: 15px;
+        left: 15px;
     }
 
     .about-us-section .content-container {
         padding-left: 0;
-        text-align: left; 
-        width: 100%; 
+        text-align: left;
+        width: 100%;
     }
 
     .about-us-section h2 {
@@ -548,21 +584,19 @@ body {
     }
 
     .about-us-section ul {
-        text-align: left; 
+        text-align: left;
         margin: 0 auto;
         max-width: 600px;
     }
 }
 
-/* Hide the Trusted badge in Mobile Device */
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
     .about-us-section .trusted-badge {
         display: none;
     }
 }
 
-
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .about-us-section h2 {
         font-size: 36px;
     }
@@ -588,12 +622,6 @@ body {
 
     .about-us-section ul li::before {
         font-size: 20px;
-    }
-
-    .about-us-section .trusted-badge {
-        animation: spin 8s linear infinite;
-        width: 100px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 }
 
