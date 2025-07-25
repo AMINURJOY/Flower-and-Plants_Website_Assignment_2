@@ -206,19 +206,20 @@ body {
 /* 2. Banner - Mobile Responsiveness */
 @media (max-width: 768px) {
     .hero-section {
-        flex-direction: column; /* Image moves to the top, content after image */
+        flex-direction: column; /* Stacks items vertically */
         padding: 40px 20px;
     }
 
-    .hero-content,
     .hero-image {
-        order: -1; /* Image moves to the top */
+        order: -1; /* This is the key change: forces the image to the very top */
         padding: 0;
         margin-bottom: 30px; /* Space between image and content */
         width: 100%; /* Image takes full width */
+        margin-top: 30px; /* Your existing margin-top for the image */
     }
 
     .hero-content {
+        order: 0; /* Ensures content follows; you could omit this as 0 is the default */
         padding: 0;
         text-align: left; /* Content left aligned as Figma */
         width: 100%; /* Content takes full width */
@@ -226,10 +227,6 @@ body {
 
     .hero-content h1 {
         font-size: 48px;
-    }
-
-    .hero-image {
-        margin-top: 30px;
     }
 }
 
@@ -242,7 +239,6 @@ body {
         font-size: 16px;
     }
 }
-
 
 /* 3. Plants Section */
 .plants-section {
@@ -602,9 +598,10 @@ body {
 }
 
 
+
 /* 5. Join Section */
 .subscribe-section {
-    width: 100vw; /* Full viewport width */
+    width: 100vw; 
     min-height: 500px;
     display: flex;
     justify-content: center;
@@ -617,6 +614,7 @@ body {
     background-repeat: no-repeat;
     position: relative;
     margin-top: 60px;
+
     
     margin-left: calc(-50vw + 50%);
     margin-right: calc(-50vw + 50%);
@@ -646,7 +644,7 @@ body {
 .subscribe-form {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 0; 
     max-width: 500px;
     margin: 0 auto;
 }
@@ -655,7 +653,7 @@ body {
     flex: 1;
     padding: 15px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0; 
     font-size: 16px;
     outline: none;
     color: #333;
@@ -670,7 +668,7 @@ body {
     color: white;
     padding: 15px 30px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0; 
     font-size: 16px;
     font-weight: 700;
     cursor: pointer;
@@ -680,13 +678,12 @@ body {
 .subscribe-btn:hover {
     background-color: #e55e52;
 }
-
 /* 5. Join Section - Mobile Responsive */
 @media (max-width: 768px) {
     .subscribe-section {
         min-height: 400px;
         padding: 50px 20px;
-        
+
         margin-left: calc(-50vw + 50%);
         margin-right: calc(-50vw + 50%);
     }
@@ -697,15 +694,21 @@ body {
     }
 
     .subscribe-form {
-        flex-direction: column; /* Stack input and button */
-        gap: 15px;
-        max-width: 350px;
+        
+        gap: 0; 
+        max-width: 350px; 
     }
 
     .subscribe-form input[type="email"],
     .subscribe-btn {
-        width: 100%; 
+        
         padding: 12px 15px;
+        border-radius: 0;
+    }
+
+    
+    .subscribe-btn {
+        padding: 12px 20px; 
     }
 }
 
@@ -719,8 +722,17 @@ body {
         font-size: 32px;
         margin-bottom: 20px;
     }
-}
 
+    
+    .subscribe-form {
+        max-width: 280px; 
+    }
+
+    .subscribe-form input[type="email"],
+    .subscribe-btn {
+        padding: 10px 12px; 
+    }
+}
 
 /* 6. Footer Section */
 .main-footer {
@@ -735,6 +747,7 @@ body {
     border-top: 1px solid #eee;
     margin-left: auto;
     margin-right: auto;
+    
 }
 
 .footer-column {
@@ -839,68 +852,85 @@ body {
     .main-footer {
         flex-wrap: wrap;
         padding: 40px 20px;
-        justify-content: center;
+        justify-content: center; 
     }
 
     .footer-column {
-        flex: 0 0 45%; 
+        flex: 0 0 45%;
         margin-bottom: 30px;
-        text-align: left;
+        text-align: left; 
         padding: 0 15px;
     }
 
     .footer-column.brand-info {
-        flex: 0 0 100%; /* Brand info takes full width */
-        text-align: center;
+        flex: 0 0 100%; 
+        text-align: center; 
         max-width: none;
         padding-right: 15px;
         margin-bottom: 30px;
     }
 
     .footer-logo {
-        justify-content: center;
+        justify-content: center; 
     }
 
     .footer-column p {
-        margin: 0 auto 30px auto;
+        margin: 0 auto 30px auto; 
     }
 
     .footer-column h4,
     .footer-column ul {
-        text-align: center;
+        text-align: center; 
     }
 
     .footer-column.social-column {
         flex: 0 0 100%;
         margin-left: 0;
-        text-align: center;
+        text-align: center; 
         padding: 0 15px;
         margin-bottom: 0;
     }
 
     .social-icons {
-        justify-content: center;
+        justify-content: center; 
     }
 }
 
 @media (max-width: 768px) {
     .footer-column {
-        flex: 0 0 100%; 
-        text-align: center;
+        flex: 0 0 100%;
+        text-align: left; 
         padding: 0 10px;
         margin-bottom: 25px;
     }
 
     .footer-column.brand-info {
         margin-bottom: 20px;
+        text-align: left; 
     }
 
     .footer-logo {
+        justify-content: flex-start; 
         margin-bottom: 15px;
+    }
+
+    .footer-column p {
+       
+        margin: 0 0 25px 0; 
+    }
+
+    .footer-column h4,
+    .footer-column ul {
+        text-align: left; 
     }
 
     .footer-column.social-column {
         margin-bottom: 0;
+        text-align: left; 
+    }
+
+    .social-icons {
+        justify-content: flex-start; /
     }
 }
 
@@ -923,7 +953,6 @@ body {
         margin-bottom: 20px;
     }
 }
-
 /* 7. Challenges Part (Latest Deal Section) */
 .latest-deals-header {
     width: 100%;
